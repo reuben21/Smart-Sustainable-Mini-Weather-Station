@@ -65,7 +65,7 @@ const ButtonAppBar=(props)=> {
                             fontFamily:"'Roboto Slab', serif",
                             flex:'1'
                         }}>
-                            Weatheri
+                            Weatherie
                         </Typography>
                         {buttonColor()}
                     </Toolbar>
