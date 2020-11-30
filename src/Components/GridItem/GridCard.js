@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import Grid from "@material-ui/core/Grid";
-import GridItemCss from './GridItem.module.css';
-import sun_icon from "../assets/sun.png";
+
 import GridCss from './GridCard.module.css'
 class GridItem extends Component {
     render() {
@@ -20,7 +19,7 @@ class GridItem extends Component {
                             height:"100px",
                             marginLeft:"-20px"
                         }}>
-                            <img src={this.props.image_icon}/>
+                            <img src={this.props.image_icon} alt={"Erro"}/>
 
 
                         </div>
