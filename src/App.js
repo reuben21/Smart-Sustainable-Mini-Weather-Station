@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.module.css';
 import React, {Component} from 'react';
 import {makeStyles, withStyles} from '@material-ui/core/styles';
@@ -14,7 +13,8 @@ import pressure from './Components/assets/pressure.png';
 import cloud from './Components/assets/cloud.png';
 import cloud_rain from './Components/assets/cloud with rain.png';
 import cloud_rain_thunder from './Components/assets/cloud with rain and thunder.png';
-
+import DoughnutJSHumidity from "./Components/chartsjs/semidoughnoutForHumidity";
+import DoughnutJSTemperature from "./Components/chartsjs/semidoughnoutForTemperature";
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -91,8 +91,10 @@ class App extends Component {
             })
         })
         this.uv_intensityValue.on('value', snap => {
+            var uv_intensity = parseFloat(snap.val())
+            var uv_index = Math.abs((uv_intensity/25)*100)
             this.setState({
-                uv_intensity: snap.val()
+                uv_intensity: uv_index
             })
         })
 
@@ -119,7 +121,7 @@ class App extends Component {
                                  suffix={"V"}/>
             } else if (Math.round(this.state.rain_value) < 2000 && Math.round(this.state.rain_value) > 0) {
 
-                return <GridItem image_icon={cloud_rain_thunder} SensorText={"Raining"}
+                return <GridItem image_icon={cloud_rain_thunder} SensorText={"Raining And Thundering"}
                                  sensor_value={Math.round(this.state.rain_value)}
                                  suffix={"V"}/>
             }
@@ -128,41 +130,72 @@ class App extends Component {
         const {classes} = this.props;
         return (
             <>
-                <Navbar LightStatus={this.state.light_sensor}/>
-
                 <div style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    margin: "30px auto",
-
+                    backgroundColor:"white"
                 }}>
-                    <Grid container spacing={3}
-                          style={{
-                              display: "block",
-                              marginTop: "20px",
-                              width: "350px"
-                          }}>
+                    <Navbar LightStatus={this.state.light_sensor}/>
 
-                        <GridItem image_icon={thermometer} SensorText={"Temperature"}
-                                  sensor_value={this.state.temperature} suffix={"°C"}/>
+                {/*<div style={{*/}
+                {/*    display: 'flex',*/}
+                {/*    justifyContent: 'center',*/}
+                {/*    alignItems: 'center',*/}
+                {/*    margin: "30px auto",*/}
 
-                        <GridItem image_icon={droplet} SensorText={"Humidity"}
-                                  sensor_value={Math.round(this.state.humidity)}
-                                  suffix={"%"}/>
+                {/*}}>*/}
+                {/*    <Grid container spacing={3}*/}
+                {/*          style={{*/}
+                {/*              display: "block",*/}
+                {/*              marginTop: "20px",*/}
+                {/*              width: "350px"*/}
+                {/*          }}>*/}
 
-                        <GridItem image_icon={sun_icon} SensorText={"UV Index"} sensor_value={this.state.uv_intensity}
-                                  suffix={"mW/cm²"}/>
 
-                        <GridItem image_icon={mountain} SensorText={"Altitude"} sensor_value={this.state.altitude}
-                                  suffix={"m"}/>
 
-                        <GridItem image_icon={pressure} SensorText={"Pressure"} sensor_value={this.state.pressure}
-                                  suffix={"Pa"}/>
-                        {rainStatus()}
 
+
+
+
+
+
+
+
+
+                    <Grid container spacing={3}>
+                        <Grid item xs={12}>
+                            <GridItem image_icon={thermometer} SensorText={"Temperature"}
+                                      sensor_value={this.state.temperature} suffix={"°C"}/>
+                            {/*<DoughnutJSTemperature ImageForView={thermometer} TemperatureValue={Math.round(this.state.temperature)}/>*/}
+
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            {/*<GridItem image_icon={droplet} SensorText={"Humidity"}*/}
+                            {/*          sensor_value={Math.round(this.state.humidity)}*/}
+                            {/*          suffix={"%"}/>*/}
+                              <DoughnutJSHumidity ImageForView={droplet} HumidityValue={Math.round(this.state.humidity)}/>
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <GridItem image_icon={sun_icon} SensorText={"UV Index"} sensor_value={this.state.uv_intensity}
+                                      suffix={""}/>
+                            {/*<DoughnutJSUV ImageForView={sun_icon} HumidityValue={this.state.uv_intensity}/>*/}
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                           <GridItem image_icon={mountain} SensorText={"Altitude"} sensor_value={this.state.altitude}
+                                                                                          suffix={"m"}/>
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <GridItem image_icon={pressure} SensorText={"Pressure"} sensor_value={this.state.pressure}
+                                      suffix={"Pa"}/>
+                        </Grid>
+
+                        <Grid item xs={12}>
+                            {rainStatus()}
+                        </Grid>
                     </Grid>
+                {/*    </Grid>*/}
+                {/*</div>*/}
+
                 </div>
+
             </>
 
         );

@@ -1,0 +1,22 @@
+
+
+.chart_width{
+    display: inline-block;
+    width: 500px;
+}
+
+.image_position {
+    position: absolute;
+    margin: 97px 216px;
+    width: 80px;
+}
+
+@media (max-width: 600px) {
+    .chart_width{
+        width: 300px;
+    }
+    .image_position {
+        margin: 56px 128px;
+        width: 50px;
+    }
+}
