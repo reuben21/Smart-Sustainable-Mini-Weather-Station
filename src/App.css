@@ -1,6 +1,14 @@
-svg {
-    width: 50px;
+
+
+.background_div_for_Color_Night {
+    background: linear-gradient(270deg, #232526, #414345) !important;
 }
+
+.background_div_for_Color_Day {
+    background: whitesmoke !important;
+}
+
+
 
 .background_div {
     width: 400px;

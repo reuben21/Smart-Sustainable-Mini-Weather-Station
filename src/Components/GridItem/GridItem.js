@@ -12,11 +12,9 @@ class GridItem extends Component {
                     borderRadius:"25px",
                     marginTop:"20px"
                 }}>
-                    <Grid item xs={6} style={{
-                        marginTop:"10px"
-                    }}>
+                    <Grid item xs={6} >
 
-                        <img src={this.props.image_icon} alt=""/>
+                        <img src={this.props.image_icon} width={100} alt=""/>
 
                     </Grid>
                     <Grid item xs={6} >
