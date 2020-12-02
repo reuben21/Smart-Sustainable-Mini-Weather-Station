@@ -1,0 +1,165 @@
+.grid_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 10px 10px;
+    grid-template-areas:
+    "TempVal TempVal TempGraph TempGraph"
+    "HumidityGrid HumidityGrid UVIndexGrid UVIndexGrid"
+    "Rain Rain Altitude Pressure";
+}
+
+.TempVal {
+    display: grid;
+    grid-template-columns: 1fr 0.1fr 1.9fr;
+    grid-template-rows: 0.6fr 1.4fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "ThermometerComponent ThermometerComponent ."
+    "ThermometerComponent ThermometerComponent TempDetails";
+    grid-area: TempVal;
+    background-color: rgba(255, 255, 255, 0.13);
+    margin: 20px;
+    padding-bottom: 20px;
+    border-radius: 25px;
+}
+
+.ThermometerComponent {
+    grid-area: ThermometerComponent;
+}
+
+.TempDetails {
+    display: grid;
+    grid-template-columns: 1.1fr 0.8fr 1.1fr;
+    grid-template-rows: 0.8fr 1.2fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "FeelsLike FeelsLike FeelsLike"
+    "TempNo . .";
+    grid-area: TempDetails;
+}
+
+.FeelsLike {
+    grid-area: FeelsLike;
+}
+
+.TempNo {
+    grid-area: TempNo;
+}
+
+.TempGraph {
+    grid-area: TempGraph;
+    background-color: rgba(255, 255, 255, 0.13);
+    margin: 20px;
+    padding-bottom: 20px;
+    border-radius: 25px;
+
+}
+
+.HumidityGrid {
+    grid-area: HumidityGrid;
+}
+
+.UVIndexGrid {
+    grid-area: UVIndexGrid;
+}
+
+.Rain {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+    "RainImage RainText RainVolts"
+    "RainImage RainText RainVolts";
+    grid-area: Rain;
+    background-color: rgba(255, 255, 255, 0.13);
+    margin: 20px;
+    padding-bottom: 20px;
+    border-radius: 25px;
+
+}
+
+.RainImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: RainImage;
+}
+
+.RainText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: RainText;
+}
+
+.RainVolts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: RainVolts;
+}
+
+.Altitude {
+    grid-area: Altitude;
+    background-color: rgba(255, 255, 255, 0.13);
+    margin: 20px;
+    padding-bottom: 20px;
+    border-radius: 25px;
+}
+
+.Pressure {
+    grid-area: Pressure;
+    background-color: rgba(255, 255, 255, 0.13);
+    margin: 20px;
+    padding-bottom: 20px;
+    border-radius: 25px;
+}
+
+
+.background_div_for_Color_Night {
+    background: linear-gradient(270deg, #232526, #414345) !important;
+}
+
+.background_div_for_Color_Day {
+    background: whitesmoke !important;
+}
+
+.div_card_Css {
+    background-color: rgba(255, 255, 255, 0.13);
+    border-radius: 20px;
+    padding: 20px;
+    width: 200px;
+    height: 300px;
+    margin: 10px;
+}
+
+@media (max-width: 730px) {
+    .div_card_Css {
+        background-color: rgba(255, 255, 255, 0.13);
+        border-radius: 20px;
+        padding: 10px;
+        width: 150px;
+        height: 300px;
+        margin: 10px;
+    }
+
+}
+
+.background_div {
+    width: 400px;
+    height: 500px;
+    background-color: rgba(255, 255, 255, 0.13);
+    border-radius: 25px;
+}
+
+
+@media (max-width: 600px) {
+    .background_div {
+        width: 300px;
+        height: 500px;
+        background-color: rgba(255, 255, 255, 0.13);
+        border-radius: 25px;
+    }
+}

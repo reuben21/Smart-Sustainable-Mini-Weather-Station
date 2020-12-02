@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import Grid from "@material-ui/core/Grid";
-import GridItemCss from './GridItem.module.css';
 
 class GridItem extends Component {
     render() {
