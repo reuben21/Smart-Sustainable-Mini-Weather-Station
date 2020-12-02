@@ -135,7 +135,7 @@
     margin: 10px;
 }
 
-@media (max-width: 730px) {
+@media (max-width: 1023px) {
     .div_card_Css {
         background-color: rgba(255, 255, 255, 0.13);
         border-radius: 20px;
@@ -143,6 +143,58 @@
         width: 150px;
         height: 300px;
         margin: 10px;
+    }
+
+    .grid_container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 10px 10px;
+        grid-template-areas:
+    "TempVal" "TempGraph"
+    "HumidityGrid" "UVIndexGrid"
+    "Rain" "Altitude" "Pressure";
+    }
+    .TempVal {
+        display: grid;
+        grid-template-columns: 1fr 0.1fr 1.9fr;
+        grid-template-rows: 0.6fr 1.4fr;
+        gap: 0px 0px;
+        grid-template-areas:
+    "ThermometerComponent"
+    "TempDetails";
+        grid-area: TempVal;
+        background-color: rgba(255, 255, 255, 0.13);
+        margin: 20px;
+        border-radius: 25px;
+        height: 500px;
+
+    }
+
+    .TempDetails {
+        display: grid;
+        grid-template-columns: 1.1fr 0.8fr 1.1fr;
+        grid-template-rows: 0.8fr 1.2fr;
+        gap: 0px 0px;
+        grid-template-areas:
+    "FeelsLike"
+    "TempNo";
+        grid-area: TempDetails;
+    }
+
+    .Rain {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0px 0px;
+        grid-template-areas:
+    "RainImage" "RainText" "RainVolts";
+        grid-area: Rain;
+        background-color: rgba(255, 255, 255, 0.13);
+        margin: 20px;
+        padding-bottom: 20px;
+        border-radius: 25px;
+
     }
 
 }
@@ -161,5 +213,110 @@
         height: 500px;
         background-color: rgba(255, 255, 255, 0.13);
         border-radius: 25px;
+    }
+
+    .grid_container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 10px 10px;
+        grid-template-areas:
+    "TempVal" "TempGraph"
+    "HumidityGrid" "UVIndexGrid"
+    "Rain" "Altitude" "Pressure";
+    }
+    .TempVal {
+        display: grid;
+        grid-template-columns: 1fr 0.1fr 1.9fr;
+        grid-template-rows: 0.6fr 1.4fr;
+        gap: 0px 0px;
+        grid-template-areas:
+    "ThermometerComponent"
+    "TempDetails";
+        grid-area: TempVal;
+        background-color: rgba(255, 255, 255, 0.13);
+        margin: 20px;
+        border-radius: 25px;
+        height: 500px;
+        width: 300px;
+
+    }
+
+    .TempDetails {
+        display: grid;
+        grid-template-columns: 1.1fr 0.8fr 1.1fr;
+        grid-template-rows: 0.8fr 1.2fr;
+        gap: 0px 0px;
+        grid-template-areas:
+    "FeelsLike"
+    "TempNo";
+        grid-area: TempDetails;
+    }
+
+    .Rain {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0px 0px;
+        grid-template-areas:
+    "RainImage" "RainText" "RainVolts";
+        grid-area: Rain;
+        background-color: rgba(255, 255, 255, 0.13);
+        margin: 20px;
+        padding-bottom: 20px;
+        border-radius: 25px;
+
+    }
+
+    .Rain {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 0px 0px;
+        grid-template-areas:
+    "RainImage" "RainText" "RainVolts";
+        grid-area: Rain;
+        background-color: rgba(255, 255, 255, 0.13);
+        margin: 20px;
+        padding-bottom: 20px;
+        border-radius: 25px;
+        width: 300px;
+
+    }
+
+    .Altitude {
+        grid-area: Altitude;
+        background-color: rgba(255, 255, 255, 0.13);
+        margin: 20px;
+        padding-bottom: 20px;
+        border-radius: 25px;
+        width: 300px;
+    }
+
+    .Pressure {
+        grid-area: Pressure;
+        background-color: rgba(255, 255, 255, 0.13);
+        margin: 20px;
+        padding-bottom: 20px;
+        border-radius: 25px;
+        width: 300px;
+    }
+    .HumidityGrid {
+        grid-area: HumidityGrid;
+        width: 300px;
+    }
+
+    .UVIndexGrid {
+        grid-area: UVIndexGrid;
+        width: 300px;
+
+    }
+    .TempGraph {
+        grid-area: TempGraph;
+        background-color: rgba(255, 255, 255, 0.13);
+        margin: 20px;
+        padding-bottom: 20px;
+        border-radius: 25px;
+        width: 300px;
     }
 }
