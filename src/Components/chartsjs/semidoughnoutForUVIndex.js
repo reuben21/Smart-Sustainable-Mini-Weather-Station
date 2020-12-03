@@ -39,7 +39,7 @@ class DoughnutJS extends Component {
         }
         return (
             <div className={ChartCss.chart_width}>
-                <img src={this.props.ImageForView} className={ChartCss.image_position} />
+                <img src={this.props.ImageForView} className={ChartCss.image_position} alt={"ERROR"}/>
                 <Doughnut data={data} options={options} />
             </div>
         );

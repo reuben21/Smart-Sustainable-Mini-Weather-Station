@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis} from 'recharts';
+import {CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis,ResponsiveContainer} from 'recharts';
 import firebase from '../../config';
-
+import './LineChart.css'
 const App = ({props}) => {
     const [data, setData] = useState([]);
     const temperatureValue = firebase.database().ref().child('temperature') //check
@@ -26,7 +26,8 @@ const App = ({props}) => {
 
     // 2. render the line chart using the state
     return (
-        <div>
+        <div id="container">
+            <ResponsiveContainer  >
 
             <LineChart width={500} height={300} data={data}>
                 <XAxis dataKey="Date" allowDecimals={true} stroke="white"/>
@@ -36,6 +37,7 @@ const App = ({props}) => {
                 <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>
                 <Line type="monotone" dataKey="Temperature" stroke="#8884d8"/>
             </LineChart>
+            </ResponsiveContainer>
         </div>
     );
 };

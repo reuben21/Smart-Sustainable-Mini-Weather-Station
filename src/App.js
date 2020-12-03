@@ -6,16 +6,19 @@ import pressure from './Components/assets/pressure.png';
 import cloud from './Components/assets/cloud.png';
 import cloud_rain from './Components/assets/cloud with rain.png';
 import cloud_rain_thunder from './Components/assets/cloud with rain and thunder.png';
-import GridCard from './Components/GridItem/GridCard'
-import AppCss from './App.module.css'
+import GridCard from './Components/GridItem/GridCard';
+import AppCss from './App.module.css';
 import Thermometer from "react-thermometer-component";
-import DoughnutJSHumidity from './Components/chartsjs/semidoughnoutForHumidity'
-import DoughnutUVIndex from './Components/chartsjs/semidoughnoutForUVIndex'
-import droplet from './Components/assets/droplet.png'
-import sun from './Components/assets/sun.png'
-import mountain from './Components/assets/altitude.png'
+import DoughnutJSHumidity from './Components/chartsjs/semidoughnoutForHumidity';
+import DoughnutUVIndex from './Components/chartsjs/semidoughnoutForUVIndex';
+import droplet from './Components/assets/droplet.png';
+import sun from './Components/assets/sun.png';
+import mountain from './Components/assets/altitude.png';
 
-import LineChart from "./Components/LineChart/LineChart";
+
+// import all the styles
+import "react-rain-animation/lib/style.css";
+import LineChart from "./Components/recharts/LineChart";
 
 
 const initVal = 25;
@@ -54,10 +57,7 @@ class App extends Component {
         rain_value: "4095.00",
         temperature: "31.20",
         uv_intensity: "-0.76",
-        TemperatureData: [
-            {name: "12:19:56", Temp: 39}
-
-        ],
+        numDrops:200
 
     }
 
@@ -179,11 +179,13 @@ class App extends Component {
 
         return (
             <>
+
+
+
                 <div
-                    className={(Math.round(this.state.light_sensor) === 1 ? 'background_div_for_Color_Night' : 'background_div_for_Color_Day')}
+                    className={`${"AppCss."+(Math.round(this.state.light_sensor) === 1 ?"background_div_for_Color_Night" : 'background_div_for_Color_Day')}`}
 
                 >
-
                     <Navbar LightStatus={this.state.light_sensor}
                     />
                     <div className={AppCss.grid_container}>
@@ -256,6 +258,7 @@ class App extends Component {
                                 paddingTop: "20px",
 
                             }}>
+
                                 <DoughnutUVIndex ImageForView={sun}
                                                  HumidityValue={Math.round(this.state.uv_intensity)}/>
                             </div>
