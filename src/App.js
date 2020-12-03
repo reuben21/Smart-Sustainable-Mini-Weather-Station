@@ -14,7 +14,7 @@ import DoughnutUVIndex from './Components/chartsjs/semidoughnoutForUVIndex';
 import droplet from './Components/assets/droplet.png';
 import sun from './Components/assets/sun.png';
 import mountain from './Components/assets/altitude.png';
-
+import './App.css'
 
 // import all the styles
 import "react-rain-animation/lib/style.css";
@@ -183,7 +183,7 @@ class App extends Component {
 
 
                 <div
-                    className={`${"AppCss."+(Math.round(this.state.light_sensor) === 1 ?"background_div_for_Color_Night" : 'background_div_for_Color_Day')}`}
+                    className={Math.round(this.state.light_sensor) === 1 ? "background_div_for_Color_Night" : "background_div_for_Color_Day"}
 
                 >
                     <Navbar LightStatus={this.state.light_sensor}
@@ -232,7 +232,7 @@ class App extends Component {
                                 alignContent: "center",
                                 paddingTop: "20px"
                             }}>
-                                <LineChart/>
+                                <LineChart  LightStatus={this.state.light_sensor}/>
                             </div>
 
                         </div>

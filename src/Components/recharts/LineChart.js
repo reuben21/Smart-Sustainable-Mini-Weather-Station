@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis,ResponsiveContainer} from 'recharts';
 import firebase from '../../config';
 import './LineChart.css'
-const App = ({props}) => {
+const App = (props) => {
     const [data, setData] = useState([]);
     const temperatureValue = firebase.database().ref().child('temperature') //check
 
@@ -30,11 +30,11 @@ const App = ({props}) => {
             <ResponsiveContainer  >
 
             <LineChart width={500} height={300} data={data}>
-                <XAxis dataKey="Date" allowDecimals={true} stroke="white"/>
-                <YAxis dataKey="Temperature" stroke="white" domain={[30, 35]}/>
+                <XAxis dataKey="Date" allowDecimals={true} stroke={Math.round(props.LightStatus) === 0 ? "#000000" : "#eeeeee"}/>
+                <YAxis dataKey="Temperature" stroke={Math.round(props.LightStatus) === 0 ? "#000000" : "#eeeeee"} domain={[30, 35]}/>
                 <Tooltip/>
                 <Legend/>
-                <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>
+                <CartesianGrid stroke={Math.round(props.LightStatus) === 0 ? "#000000" : "#eeeeee"} strokeDasharray="5 5"/>
                 <Line type="monotone" dataKey="Temperature" stroke="#8884d8"/>
             </LineChart>
             </ResponsiveContainer>
