@@ -1,6 +1,6 @@
 <h1> Smart Sustainable Mini Weather Station </h1>
  <h2> Demo </h2>
-<video src="https://www.youtube.com/watch?v=epxOKOChrRE" width="320" height="240" controls> </video>
+ <a href="https://youtu.be/epxOKOChrRE" >Video Link</a>
  <h2> Hardware Requirements </h2>
 <ol>
 <li>
